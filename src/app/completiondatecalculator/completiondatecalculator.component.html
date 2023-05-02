@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <div class="card text-center">
+        <div class="card-header">
+          <h5>Completion Date Calculator</h5>
+        </div>
+        <div class="card-body" [formGroup]="calculatorForm">
+          <div class="row mb-4 pt-3">
+            <label for="startDate" class="col-sm-2 col-form-label">Start Date</label>
+            <div class="col-sm-9">
+              <input type="date" class="form-control" id="startDate" max="2022-08-31" [formControl]="startDate">
+              <div *ngIf="startDate.invalid && (startDate.dirty || startDate.touched)" class="alert alert-danger">
+                <div *ngIf="daysToComplete.errors?.['required']">
+                  Start Date is required.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <label for="daysToComplete" class="col-sm-2 col-form-label pt-0">Number of Days</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="daysToComplete" [formControl]="daysToComplete">
+              <div *ngIf="daysToComplete.invalid && (daysToComplete.dirty || daysToComplete.touched)"
+                class="alert alert-danger">
+                <div *ngIf="daysToComplete.errors?.['required']">
+                  Number of days is required.
+                </div>
+                <div *ngIf="daysToComplete.errors?.['pattern']">
+                  Only numeric input is allowed.
+                </div>
+                <div *ngIf="daysToComplete.errors?.['max']">
+                  The task Should be completed within 2 weeks.
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary" (click)="calculateCompletionDate()"
+            [disabled]="calculatorForm.invalid">Calculate</button> |
+          <button class="btn btn-primary" (click)="resetCalculatorForm()">Reset</button>
+        </div>
+      </div>
+      <div *ngIf="isCompletionDateAvailable" class="row pt-3">
+        <h3>Completion Date: {{completionDate | date}}</h3>
+      </div>
+    </div>
+  </div>
+</div>
