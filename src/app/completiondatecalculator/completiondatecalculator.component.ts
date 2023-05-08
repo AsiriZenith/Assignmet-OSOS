@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { MonthDays } from '../view-model/month-days.interface';
-import { MonthDetailsService } from '../services/monthdetails.service';
-import { CompletionDateCalculatorService } from '../services/completiondatecalculator.service';
+import { MonthDetailsService } from '../services/monthdetails/monthdetails.service';
+import { CompletionDateCalculatorService } from '../services/completiondatecalculator/completiondatecalculator.service';
 
 @Component({
   selector: 'app-completiondatecalculator',

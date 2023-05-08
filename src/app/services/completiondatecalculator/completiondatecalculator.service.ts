@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { MonthDays } from '../view-model/month-days.interface';
+import { MonthDays } from '../../view-model/month-days.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -27,6 +27,7 @@ export class CompletionDateCalculatorService {
     }
 
     const date = new Date(year, month - 1, completionDate);
+
     return of(date);
   }
 }

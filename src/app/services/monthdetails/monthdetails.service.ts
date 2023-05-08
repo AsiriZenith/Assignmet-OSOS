@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { MonthDays } from '../view-model/month-days.interface';
+import { MonthDays } from '../../view-model/month-days.interface';
 
 @Injectable({
   providedIn: 'root',
